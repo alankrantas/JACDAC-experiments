@@ -1,0 +1,19 @@
+{
+  "name": "jacdac-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx tsc-watch --onsuccess \"node ./dist/index.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jacdac-ts": "^1.24.40",
+    "tsc-watch": "^5.0.3",
+    "typescript": "^4.7.4",
+    "usb": "^2.4.3"
+  }
+}
