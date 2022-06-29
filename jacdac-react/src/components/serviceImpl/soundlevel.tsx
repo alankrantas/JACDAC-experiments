@@ -8,10 +8,10 @@ const SoundLevel: FunctionComponent = () => {
 
     const service = useServices({ serviceClass: SRV_SOUND_LEVEL })[0];
 
-    const soundEnableReg = service.register(SoundLevelReg.Enabled);
-    const soundLevelReg = service.register(SoundLevelReg.SoundLevel);
-    const [soundLevelValue = 0] = useRegisterValue(soundLevelReg);
+    const [soundLevelValue = 0] = useRegisterValue(service.register(SoundLevelReg.SoundLevel));
 
+    const soundEnableReg = service.register(SoundLevelReg.Enabled);
+    
     const toggle = async () => {
         await soundEnableReg.sendSetBoolAsync(!soundEnabled);
         setSoundEnabled(!soundEnabled);
