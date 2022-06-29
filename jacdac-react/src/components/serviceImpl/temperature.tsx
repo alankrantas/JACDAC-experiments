@@ -3,17 +3,17 @@ import { useServices, useRegisterValue } from "react-jacdac";
 import { SRV_TEMPERATURE, TemperatureReg, TemperatureVariant } from "jacdac-ts";
 
 const Temperature: FunctionComponent = () => {
-    
+
     const service = useServices({ serviceClass: SRV_TEMPERATURE })[0];
 
-    const tempReg = service.register(TemperatureReg.Temperature);
-    const [tempValue = 0] = useRegisterValue(tempReg) as number[];
+    const [tempValue = 0] = useRegisterValue(
+        service.register(TemperatureReg.Temperature)) as number[];
 
-    const tempErrReg = service.register(TemperatureReg.TemperatureError);
-    const [tempErrValue = 0] = useRegisterValue(tempErrReg) as number[];
+    const [tempErrValue = 0] = useRegisterValue(
+        service.register(TemperatureReg.TemperatureError)) as number[];
 
-    const tempVarReg = service.register(TemperatureReg.Variant);
-    const [tempVarValue = 0] = useRegisterValue(tempVarReg) as number[];
+    const [tempVarValue = 0] = useRegisterValue(
+        service.register(TemperatureReg.Variant)) as number[];
 
     return (
         <div>
