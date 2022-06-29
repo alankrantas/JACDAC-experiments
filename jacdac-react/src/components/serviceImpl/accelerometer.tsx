@@ -4,7 +4,7 @@ import { SRV_ACCELEROMETER, AccelerometerReg, AccelerometerEvent } from "jacdac-
 import type { JDEvent } from "jacdac-ts";
 
 const Accelerometer: FunctionComponent = () => {
-    
+
     const [pitch, setPitch] = useState<number>();
     const [roll, setRoll] = useState<number>();
     const [event, setEvent] = useState<String>("");
@@ -50,6 +50,11 @@ const Accelerometer: FunctionComponent = () => {
     useEventReceived(service.event(AccelerometerEvent.TiltUp), (e: JDEvent) => {
         setEvent(e.name);
     });
+
+    useEffect(() => {
+        const timer = setTimeout(() => setEvent(""), 3000);
+        return () => clearTimeout(timer);
+    }, [event]);
 
     return (
         <div>
