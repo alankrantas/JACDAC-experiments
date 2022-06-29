@@ -11,8 +11,8 @@ const Accelerometer: FunctionComponent = () => {
 
     const service = useServices({ serviceClass: SRV_ACCELEROMETER })[0];
 
-    const accelReg = service.register(AccelerometerReg.Forces);
-    const [x = 0, y = 0, z = 0] = useRegisterValue(accelReg) as [number, number, number];
+    const [x = 0, y = 0, z = 0] = useRegisterValue(
+        service.register(AccelerometerReg.Forces)) as [number, number, number];
 
     useEffect(() => {
         setPitch(Math.atan2(y, Math.sqrt(x ** 2 + z ** 2)) * (180 / Math.PI));
