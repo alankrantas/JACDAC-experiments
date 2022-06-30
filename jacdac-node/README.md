@@ -14,7 +14,7 @@ Requires Node.js:
 npm install
 ```
 
-### Run ```index.ts```
+### Run ```/src/index.ts```
 
 ```
 npm start
