@@ -14,16 +14,14 @@ Requires Node.js:
 npm install
 ```
 
-### Start Dev Server
+### Run ```index.ts```
 
 ```
 npm start
 ```
 
-### Serve Production
+Or
 
 ```
-npm run build
-npm install -g http-server
-http-server ./build
+npx tsc-watch --onsuccess "node ./dist/index.js"
 ```
