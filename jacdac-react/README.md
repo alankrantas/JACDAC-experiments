@@ -13,6 +13,8 @@ If ```serviceOperator``` cannot find a component for a specific service, it will
 
 See [this](https://microsoft.github.io/jacdac-docs/clients/makecode/servers/) for how to flash JACDAC firmware onto your micro:bit V2. Or you can directly flash with the .hex in this project (which enables four services on micro:bit V2).
 
+See the [Medium](https://alankrantas.medium.com/build-a-react-app-to-interact-with-jacdac-services-on-bbc-micro-bit-dbdcd70567b7) article for details.
+
 ### Setup
 
 Requires Node.js:
