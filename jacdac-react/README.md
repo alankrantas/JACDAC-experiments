@@ -1,38 +1,58 @@
-## JACDAC on React with TypeScript
+## JACDAC Demo on React with TypeScript
 
-This is a showcase app that allows you to browse JACDAC devices and its services in an interactive way. The app is built with React and Bootstrap.
-
-You can implement a service component and import it into ```/src/component/serviceOperator.tsx```, adding it in the switch/case. There are four services I've already implemented:
+Reading micro:bit sensor data using JACDAC's [React package](https://microsoft.github.io/jacdac-docs/clients/javascript/react/). The React app supports the following four sensors:
 
 * Temperature
 * Accelerometer
 * Sound level
 * Screen (dot matrix)
 
+For other sensors, the default sensor spec data would be displayed.
+
+### Firmware
+
+The [JACDAC firmware](https://microsoft.github.io/jacdac-docs/clients/makecode/servers/) for the micro:bit should start all four services:
+
+```js
+jacdac.startServer()
+servers.startServer(servers.accelerometerServer)
+servers.startServer(servers.soundLevelServer)
+servers.startServer(servers.screenServer)
+servers.startServer(servers.temperatureServer)
+```
+
 If ```serviceOperator``` cannot find a component for a specific service, it will use ```/src/component/serviceSpec.tsx``` instead.
-
-See [this](https://microsoft.github.io/jacdac-docs/clients/makecode/servers/) for how to flash JACDAC firmware onto your micro:bit V2. Or you can directly flash with the .hex in this project (which enables four services on micro:bit V2).
-
-See the [Medium](https://alankrantas.medium.com/build-a-react-app-to-interact-with-jacdac-services-on-bbc-micro-bit-dbdcd70567b7) article for details.
 
 ### Setup
 
-Requires Node.js:
+> Requires Node.js
 
 ```
-npm install
+npm i -g yarn
+yarn
 ```
 
-### Start Dev Server
+### Start developing server
+
+> Make sure your micro:bit is disconnected from MakeCode or other apps
 
 ```
-npm start
+yarn start
 ```
 
-### Serve Production
+### Serve production site
 
 ```
-npm run build
+yarn run build
+```
+
+Then
+
+```
 npm i -g http-server
 http-server ./build
 ```
+
+And open ```http://localhost:8080```.
+
+Or you can serve the ```build``` directory in any static HTTP server.

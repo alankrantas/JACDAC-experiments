@@ -15,23 +15,28 @@ const App: FunctionComponent = () => {
 
     return (
         <div className="container-sm">
-            <div className="p-2 m-2 display-6">JACDAC services demo w/ React</div>
+            <div className="p-2 m-2 display-6">JACDAC Services Demo w/ React</div>
             <div>
                 <Connection bus={bus} />
             </div>
-            {connected
-                &&
-                <div className="p-2 m-2">
+            {
+                !connected ?
+                    (
+                        <div></div>
+                    ) :
+                    (
+                        <div className="p-2 m-2">
 
-                    <div>
-                        <DevicesList setDevice={setDevice} />
-                    </div>
-                    <div>
-                        <Device device={device!}
-                            serviceClass={serviceClass}
-                            setServiceClass={setServiceClass} />
-                    </div>
-                </div>
+                            <div>
+                                <DevicesList setDevice={setDevice} />
+                            </div>
+                            <div>
+                                <Device device={device!}
+                                    serviceClass={serviceClass}
+                                    setServiceClass={setServiceClass} />
+                            </div>
+                        </div>
+                    )
             }
         </div>
     );

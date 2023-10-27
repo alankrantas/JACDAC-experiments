@@ -23,14 +23,14 @@ const DevicesList: FunctionComponent<Props> = (props) => {
                             key={device.id}
                             className="list-group-item">
                             <span className="p-1 m-1 fs-6">
-                                <b>{device.name}</b> ({device.id})
+                                <b>{device.name}</b> <small>({device.id})</small>
                             </span>
                             <button
                                 type="button"
                                 className="p-1 m-1 btn btn-sm btn-primary"
                                 onClick={() => props.setDevice(device)}
                             >
-                                select
+                                Select
                             </button>
                         </li>
                     ))}

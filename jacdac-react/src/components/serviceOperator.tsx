@@ -31,20 +31,24 @@ const ServiceOperater: FunctionComponent<Props> = (props) => {
     return (
         <div className="p-1 m-1 shadow rounded">
             {
-                props.serviceClass !== -1
-                &&
-                <div>
-                    <div className="p-1 m-1">
-                        <button
-                            type="button"
-                            className="btn btn-sm btn-close"
-                            onClick={() => props.setServiceClass(-1)}
-                        />
-                    </div>
-                    <div className="p-1 m-1">
-                        {operator()}
-                    </div>
-                </div>
+                props.serviceClass !== -1 ?
+                    (
+                        <div></div>
+                    ) :
+                    (
+                        <div>
+                            <div className="p-1 m-1">
+                                <button
+                                    type="button"
+                                    className="btn btn-sm btn-close"
+                                    onClick={() => props.setServiceClass(-1)}
+                                />
+                            </div>
+                            <div className="p-1 m-1">
+                                {operator()}
+                            </div>
+                        </div>
+                    )
             }
         </div>
     )

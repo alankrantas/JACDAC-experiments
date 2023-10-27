@@ -33,14 +33,14 @@ const Device: FunctionComponent<Props> = (props) => {
                                     className="list-group-item">
                                     <div>
                                         <span className="p-1 m-1 fs-6">
-                                            <b>{service.name}</b> (identifier: {service.serviceClass})
+                                            <b>{service.name}</b> <small>(identifier: <code>{service.serviceClass}</code>)</small>
                                         </span>
                                         <button
                                             type="button"
                                             className="p-1 m-1 btn btn-sm btn-secondary"
                                             onClick={() => props.setServiceClass(service.serviceClass)}
                                         >
-                                            inspect
+                                            Inspect
                                         </button>
                                     </div>
                                     {service.serviceClass === props.serviceClass

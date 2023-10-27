@@ -1,27 +1,34 @@
-## JACDAC on Node.js with TypeScript
+## JACDAC Demo on Node.js with TypeScript
 
-This example reads accelerometer, prints 3-axis data in the console and display a smile face on the LED screen when you shake it.
+Reading micro:bit sensor data using JACDAC's [JDOM library](https://microsoft.github.io/jacdac-docs/clients/javascript/jdom/) in Node.js.
 
-See [this](https://microsoft.github.io/jacdac-docs/clients/makecode/servers/) for how to flash JACDAC firmware onto your micro:bit V2. Or you can directly flash with the .hex in this project (which enables accelerometer and LED screen services on micro:bit V2).
+### Firmware
 
-See the [Medium](https://alankrantas.medium.com/interfacing-jacdac-services-on-bbc-micro-bit-w-node-js-typescript-e39fc17a768) article for details.
+The [JACDAC firmware](https://microsoft.github.io/jacdac-docs/clients/makecode/servers/) for the micro:bit should start two services (accelerometer and LED screen):
+
+```js
+jacdac.startServer()
+servers.startServer(servers.accelerometerServer)
+servers.startServer(servers.screenServer)
+```
+
+If the script cannot detect either services, the script will stop.
 
 ### Setup
 
-Requires Node.js:
+> Requires Node.js
 
 ```
-npm install
+npm i -g yarn
+yarn
 ```
 
-### Run ```/src/index.ts```
+### Run script
+
+> Make sure your micro:bit is disconnected from MakeCode or other apps
 
 ```
-npm start
+yarn start
 ```
 
-Or
-
-```
-npx tsc-watch --onsuccess "node ./dist/index.js"
-```
+The running script will update itself after you save new changes to `index.ts`. Press ```Ctrl + C``` in the console to stop the script.
